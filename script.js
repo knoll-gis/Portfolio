@@ -1,93 +1,281 @@
-// script.js
-// Basic behavior for Johnathan Knoll GIS portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Johnathan Knoll | GIS & Spatial Data Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Smooth scrolling for in-page nav links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener("click", event => {
-            const targetId = link.getAttribute("href");
-            if (!targetId || targetId === "#") return;
+    <meta name="description" content="Portfolio of Johnathan Knoll, GIS Technician specializing in local government GIS, automation, workflow design, and geospatial analytics.">
 
-            const targetEl = document.querySelector(targetId);
-            if (!targetEl) return;
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-            event.preventDefault();
-            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-    });
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="logo">
+            <span class="logo-mark">JK</span>
+            <span class="logo-text">Johnathan Knoll</span>
+        </div>
+        <nav class="main-nav">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#maps">Interactive Maps</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
 
-    // 2. Footer year
-    const yearSpan = document.getElementById("year");
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+<main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="section hero">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <p class="eyebrow">Local Government GIS · Automation · Spatial Analytics</p>
+                <h1>Building reliable workflows for real-world GIS operations.</h1>
+                <p class="hero-subtitle">
+                    I create GIS tools, automated workflows, and high-integrity spatial datasets 
+                    that support E911 addressing, street naming, and 
+                    decision-making in county government.
+                </p>
 
-    // 3. Initialize Leaflet map demo (if Leaflet is loaded and #map1 exists)
-    initializeLeafletDemoMap();
+                <div class="hero-actions">
+                    <a href="#projects" class="btn primary">View Projects</a>
+                    <a href="#contact" class="btn ghost">Get in Touch</a>
+                </div>
+            </div>
 
-    // 4. Set ArcGIS Online embed URL (fill this in with your own AGOL app URL)
-    setAgolEmbedUrl();
-});
+            <div class="hero-highlight">
+                <div class="hero-card">
+                    <h2>Focus Areas</h2>
+                    <ul>
+                        <li>Addressing & 911 GIS</li>
+                        <li>Automated GIS Workflows</li>
+                        <li>Data Integrity & QA/QC</li>
+                        <li>Street Naming Tools</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/**
- * Initializes a simple Leaflet map in the div with id "map1".
- * Requires Leaflet JS & CSS to be included in index.html, for example:
- *
- * <link
- *   rel="stylesheet"
- *   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
- *   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
- *   crossorigin=""
- * >
- * <script
- *   src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
- *   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
- *   crossorigin="">
- * </script>
- */
-function initializeLeafletDemoMap() {
-    const mapDiv = document.getElementById("map1");
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <div class="container two-column">
+            <div>
+                <h2>About Me</h2>
+                <p>
+                    I'm a GIS Technician II for Guadalupe County, TX, focusing on address management,
+                    street naming, land records, and public safety datasets. My work centers on 
+                    automating repetitive tasks and building reliable GIS workflows that reduce 
+                    errors and speed up operations.
+                </p>
+                <p>
+                    I design ArcGIS Pro Tasks, Python toolboxes, and Excel-integrated systems 
+                    that streamline everyday workflows such as address verification, parcel 
+                    selection, and street name conflict checks.
+                </p>
+                <p>
+                    I graduated from Texas State University in 2024 with a B.S. in Geographic Information
+                    Science and a minor in Nature and Heritage Tourism, which grounded me in both the
+                    technical side of GIS and how people experience and interact with place.
+                </p>
+            </div>
 
-    // If there's no map container or Leaflet isn't loaded, bail quietly
-    if (!mapDiv || typeof L === "undefined") {
-        return;
-    }
+            <div>
+                <h3>Strengths</h3>
+                <ul class="key-points">
+                    <li>Translating messy real-world workflows into clean GIS tools</li>
+                    <li>Automating high-volume processes using Python & ArcPy</li>
+                    <li>Designing data integrity rules to prevent bad inputs</li>
+                    <li>Working across departments to improve interdepartmental operations</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    // Center roughly over Appalachia / VA-NC region
-    const center = [37.3, -80.0];
-    const zoom = 7;
+    <!-- SKILLS -->
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <h2>Skills</h2>
 
-    const map = L.map(mapDiv).setView(center, zoom);
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3>GIS & Spatial</h3>
+                    <ul>
+                        <li>ArcGIS Pro / ArcGIS Online</li>
+                        <li>Parcel, Address, & Road Centerline Management</li>
+                        <li>Topology, QA/QC, Attribute Rules</li>
+                        <li>Cartography & Map Layouts</li>
+                    </ul>
+                </div>
 
-    // Basic OpenStreetMap tiles
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: "&copy; OpenStreetMap contributors"
-    }).addTo(map);
+                <div class="skill-group">
+                    <h3>Data & Automation</h3>
+                    <ul>
+                        <li>Python, ArcPy, pandas</li>
+                        <li>ModelBuilder & Task Frameworks</li>
+                        <li>Excel Automation (OpenPyXL, integrated workflows)</li>
+                        <li>Data Validation & Schema Design</li>
+                    </ul>
+                </div>
 
-    // Simple marker & popup
-    L.marker(center)
-        .addTo(map)
-        .bindPopup("Example Leaflet map – replace this with your own data.")
-        .openPopup();
-}
+                <div class="skill-group">
+                    <h3>Web & Scripting</h3>
+                    <ul>
+                        <li>HTML / CSS / JavaScript</li>
+                        <li>Leaflet & Mapbox GL</li>
+                        <li>ArcGIS API for JavaScript</li>
+                        <li>GitHub Pages deployment</li>
+                    </ul>
+                </div>
 
-/**
- * Sets the src of the ArcGIS Online embedded map iframe.
- * Replace the placeholder URL with your own AGOL web app / map viewer link.
- */
-function setAgolEmbedUrl() {
-    const iframe = document.getElementById("agol-embed");
-    if (!iframe) return;
+                <div class="skill-group">
+                    <h3>Domain Expertise</h3>
+                    <ul>
+                        <li>Addressing & Street Naming Policy</li>
+                        <li>911 & Emergency Response Datasets</li>
+                        <li>Subdivision & Land Development GIS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // TODO: Replace this with your real ArcGIS Online app URL
-    const agolUrl = ""; // e.g. "https://www.arcgis.com/apps/mapviewer/index.html?webmap=YOUR_WEBMAP_ID"
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <p class="section-intro">
+                A selection of real-world work where I improved GIS operations, automated workflows, 
+                or designed better spatial datasets for county and public safety use.
+            </p>
 
-    if (agolUrl) {
-        iframe.src = agolUrl;
-    } else {
-        // If you haven't set an AGOL URL yet, you can optionally show a placeholder message
-        iframe.title = "ArcGIS Online map embed (URL not configured yet)";
-    }
-}
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <h3>Address Verification Workflow Automation</h3>
+                    <p class="project-meta">ArcGIS Pro · Python Toolbox · Excel Integration</p>
+                    <p>
+                        Developed a complete address verification workflow that selects parcels, 
+                        checks address history, populates an Excel workbook, and generates 
+                        address verification letters in ArcGIS Pro.
+                    </p>
+                    <p class="project-impact"><strong>Impact:</strong> Reduced manual steps, eliminated
+                        common data-entry errors, and standardized the entire address assignment process.</p>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <h3>Street Name Conflict & Phonetic Matching Tool</h3>
+                    <p class="project-meta">ArcPy · Metaphone · Fuzzy Matching</p>
+                    <p>
+                        Created a street-name conflict detection tool combining substring matching,
+                        Metaphone pronunciation encoding, and fuzzy string scoring to catch sound-alike
+                        names across centerlines and reserved-name datasets.
+                    </p>
+                    <p class="project-impact"><strong>Impact:</strong> Reduced risk of confusing street names, 
+                        improved 911 routing clarity, and increased review consistency.</p>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <h3>Data Integrity Framework for Address Points</h3>
+                    <p class="project-meta">Domains · Attribute Rules · Topology</p>
+                    <p>
+                        Designed a comprehensive set of data integrity rules, domains, and topology checks 
+                        for address points and street centerlines, ensuring accuracy across the address database.
+                    </p>
+                    <p class="project-impact"><strong>Impact:</strong> Shifted QA from reactive to proactive,
+                        preventing invalid inputs at the source.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MAPS -->
+    <section id="maps" class="section section-alt">
+        <div class="container">
+            <h2>Interactive Web Maps</h2>
+            <p class="section-intro">
+                Examples of browser-based GIS applications using Leaflet, Mapbox, or ArcGIS Online embeds.
+                These demonstrate my ability to produce web-ready GIS tools.
+            </p>
+
+            <div class="map-showcase-grid">
+
+                <!-- Map container 1 -->
+                <div class="map-card">
+                    <h3>Leaflet Demo Map</h3>
+                    <p class="project-meta">HTML · JS · Leaflet</p>
+                    <div id="map1" class="map-container"></div>
+                </div>
+
+                <!-- Map container 2 -->
+                <div class="map-card">
+                    <h3>ArcGIS Online Embedded Map</h3>
+                    <p class="project-meta">ArcGIS Web App</p>
+                    <iframe 
+                        src="" 
+                        id="agol-embed"
+                        class="map-embed"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="section">
+        <div class="container">
+            <h2>Resume</h2>
+            <p class="section-intro">Download my full resume below.</p>
+            <a href="resume.pdf" class="btn primary" download>Download Resume (PDF)</a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <h2>Contact</h2>
+            <p class="section-intro">Feel free to reach out for GIS roles, workflow design, or collaboration.</p>
+
+            <div class="contact-grid">
+                <div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                </div>
+
+                <div>
+                    <h3>LinkedIn</h3>
+                    <p><a href="#" target="_blank">LinkedIn Profile</a></p>
+                </div>
+
+                <div>
+                    <h3>GitHub</h3>
+                    <p><a href="#" target="_blank">GitHub</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> Johnathan Knoll</span>
+        <span>GIS · Automation · Spatial Analytics</span>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
